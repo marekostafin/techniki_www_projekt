@@ -8,15 +8,15 @@
   "author": "Marek Ostafin",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "cookie-parser": "~1.4.4",
     "debug": "^4.3.4",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jquery": "^3.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^3.1.2",
-    "nodemon": "^2.0.20",
-    "sequelize": "^6.28.0",
-    "sequelize-cli": "^6.6.0"
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
   }
 }

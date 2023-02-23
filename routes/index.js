@@ -1,9 +1,22 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const {db} = require("../controllers/dbController");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async function (req, res, next) {
+    if (req.cookies.currentUsername){
+        db.query('SELECT * FROM Books', (err, row, fields) => {
+            if (err) {
+                console.error(err);
+            } else if (row) {
+                res.render('index', {title: "Papyrus", books: row, user: req.cookies.currentUsername});
+            }
+        });
+    }
+});
+
+router.post('/logout', (req, res) => {
+    res.clearCookie("currentUsername");
+    res.redirect('/login');
 });
 
 module.exports = router;
